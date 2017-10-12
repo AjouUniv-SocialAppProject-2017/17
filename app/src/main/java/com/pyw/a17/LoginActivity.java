@@ -68,11 +68,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onStart() {
         super.onStart();
-        if(mAuth == null) {
-            mAuth = FirebaseAuth.getInstance();
-        }else {
-
-        }
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
@@ -141,13 +136,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
                         }
                     };
-                    mDatabase.addListenerForSingleValueEvent(colorListener);
                 }
             };
             loadingThread.start();
 
-            //Intent intent = new Intent(this, HomeMenuActivity.class);
-            //startActivity(intent);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }else {
         }
     }
