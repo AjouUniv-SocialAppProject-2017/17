@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="5dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingTop="5dp"
     tools:context=".MainActivity" >
+
+    <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:titleTextColor="#fff"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
 
     <GridView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,7 +27,7 @@
         android:numColumns="2"
         android:verticalSpacing="10dp"
         android:layout_gravity="center"
-
+        android:layout_marginTop="60dip"
         />
 
 </LinearLayout>

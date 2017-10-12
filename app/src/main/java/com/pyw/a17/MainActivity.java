@@ -2,7 +2,11 @@ package com.pyw.a17;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +16,12 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private Integer[] mThumbIds = { R.drawable.view01,
             R.drawable.view02, R.drawable.view03,
             R.drawable.view04, R.drawable.view05,
-            R.drawable.view06, R.drawable.view07
+            R.drawable.view06
     };
 
     DisplayMetrics mMetrics;
@@ -26,6 +30,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
@@ -38,12 +47,21 @@ public class MainActivity extends Activity {
     private GridView.OnItemClickListener gridviewOnItemClickListener
             = new GridView.OnItemClickListener() {
 
-        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+        public void onItemClick(AdapterView<?> adapter, View view, int position,
                                 long arg3) {
 
-            Toast.makeText(MainActivity.this,
-                    arg0.getAdapter().getItem(arg2).toString(),
-                    Toast.LENGTH_LONG).show();
+            switch(position) {
+                case 0 : {
+                    Intent intent = new Intent(MainActivity.this, QueryBoardActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case 1 : {
+                    Intent intent = new Intent(MainActivity.this, FreeBoardActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }
         }
     };
 
