@@ -15,6 +15,42 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="QueryBoard"/>
+        android:text="QueryBoard"
+        android:id="@+id/board_title"/>
+    
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:id="@+id/post_listview">
+
+
+    </ListView>
+    
+    <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <EditText
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:id="@+id/search_edittext"/>
+        
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:id="@+id/search_btn"
+            android:text="검색"/>
+
+    </LinearLayout>
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/write_post_btn"
+        android:text="글쓰기"
+        android:layout_gravity="right"/>
 
 </LinearLayout>
