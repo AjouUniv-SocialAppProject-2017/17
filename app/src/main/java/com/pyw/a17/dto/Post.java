@@ -6,22 +6,32 @@ package com.pyw.a17.dto;
 
 public class Post {
 
+    private int no;
     private String title;
     private String content;
-    private String date;
+    private String writeDate;
     private String writer;
-    private String reply;
+    private int reply;
 
     public Post() {
 
     }
 
-    public Post(String title, String content, String date, String writer, String reply) {
+    public Post(int no, String title, String content, String writeDate, String writer, int reply) {
+        this.no = no;
         this.title = title;
         this.content = content;
-        this.date = date;
+        this.writeDate = writeDate;
         this.writer = writer;
         this.reply = reply;
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
     }
 
     public String getTitle() {
@@ -40,12 +50,12 @@ public class Post {
         this.content = content;
     }
 
-    public String getDate() {
-        return date;
+    public String getWriteDate() {
+        return writeDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setWriteDate(String writeDate) {
+        this.writeDate = writeDate;
     }
 
     public String getWriter() {
@@ -56,11 +66,11 @@ public class Post {
         this.writer = writer;
     }
 
-    public String getReply() {
+    public int getReply() {
         return reply;
     }
 
-    public void setReply(String reply) {
+    public void setReply(int reply) {
         this.reply = reply;
     }
 }

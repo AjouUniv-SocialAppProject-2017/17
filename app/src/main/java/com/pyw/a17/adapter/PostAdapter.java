@@ -63,9 +63,9 @@ public class PostAdapter extends BaseAdapter {
 
         textViewTitle.setText(list.get(i).getTitle());
         textViewContent.setText(list.get(i).getContent());
-        textViewDate.setText(list.get(i).getDate());
+        textViewDate.setText(list.get(i).getWriteDate());
         textViewWriter.setText(list.get(i).getWriter());
-        textViewReply.setText(list.get(i).getReply());
+        textViewReply.setText(list.get(i).getReply() + "");
 
         return convertView;
     }

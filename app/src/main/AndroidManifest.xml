@@ -21,6 +21,7 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".QueryBoardActivity"/>
         <activity android:name=".FreeBoardActivity"/>
+        <activity android:name=".WritePostActivity"/>
     </application>
 
 </manifest>
