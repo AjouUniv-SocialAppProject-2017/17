@@ -6,6 +6,6 @@ package com.pyw.a17;
 
 public class Global {
 
-    public static String IP_ADDRESS = "172.30.1.60";
+    public static String IP_ADDRESS = "192.168.18.25";
     public static String id;
 }
