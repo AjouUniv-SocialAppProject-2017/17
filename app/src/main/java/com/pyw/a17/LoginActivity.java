@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void updateUI(FirebaseUser user) {
         if(user != null) {
 
-            Global.id = user.getDisplayName();
+            Global.id = user.getEmail().split("@")[0];
 
             loadingThread = new Thread() {
                 @Override

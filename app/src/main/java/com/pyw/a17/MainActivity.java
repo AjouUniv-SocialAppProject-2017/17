@@ -61,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 }
+                case 2 : {
+                    Intent intent = new Intent(MainActivity.this, StudyBoardActivity.class);
+                    startActivity(intent);
+                    break;
+                }
             }
         }
     };

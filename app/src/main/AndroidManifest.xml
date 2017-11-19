@@ -22,6 +22,8 @@
         <activity android:name=".QueryBoardActivity"/>
         <activity android:name=".FreeBoardActivity"/>
         <activity android:name=".WritePostActivity"/>
+        <activity android:name=".ViewPostActivity"/>
+        <activity android:name=".StudyBoardActivity"/>
     </application>
 
 </manifest>

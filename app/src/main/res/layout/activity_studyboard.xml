@@ -15,9 +15,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FreeBoard"
+        android:text="StudyBoard"
         android:id="@+id/board_title"/>
-
+    
     <ListView
         android:layout_width="match_parent"
         android:layout_height="360dp"
@@ -25,7 +25,7 @@
 
 
     </ListView>
-
+    
     <LinearLayout
         android:layout_width="260dp"
         android:layout_height="60dp"
@@ -39,7 +39,7 @@
             android:layout_width="180dp"
             android:layout_height="60dp"
             android:id="@+id/search_edittext"/>
-
+        
         <Button
             android:layout_width="wrap_content"
             android:layout_height="60dp"
@@ -47,7 +47,7 @@
             android:text="검색"/>
 
     </LinearLayout>
-
+    
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

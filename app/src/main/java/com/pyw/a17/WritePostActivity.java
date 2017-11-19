@@ -28,6 +28,8 @@ public class WritePostActivity extends AppCompatActivity {
     private EditText editTextContent;
     private Button btnWrite;
 
+    private String boardKind;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,8 @@ public class WritePostActivity extends AppCompatActivity {
         editTextContent = (EditText)findViewById(R.id.writepost_content);
         btnWrite = (Button)findViewById(R.id.writepost_btn);
 
+        boardKind = (String)getIntent().getStringExtra("board_kind");
+
         btnWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +49,7 @@ public class WritePostActivity extends AppCompatActivity {
                 String title = editTextTitle.getText().toString();
                 String content = editTextContent.getText().toString();
                 String writer = Global.id;
-                taskWritePost.execute("post_query", title, content, writer);
+                taskWritePost.execute(boardKind, title, content, writer);
             }
         });
     }

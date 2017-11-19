@@ -46,6 +46,7 @@ public class QueryBoardActivity extends Board {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(QueryBoardActivity.this, WritePostActivity.class);
+                intent.putExtra("board_kind", "post_query");
                 startActivity(intent);
             }
         });
@@ -110,17 +111,11 @@ public class QueryBoardActivity extends Board {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                            MessageDTO curView = (MessageDTO) adapter.getItem(position);
-//                            String curData = curView.getContent();
-//
-//                            showAlertDialog(curData);
-//
-//                            if(curView.getRead() == 0) {
-//                                new UpdateReadMessageAsyncTaskClass().execute(curView.getMessageNo());
-//                                curView.setRead(1);
-//                                listView.setAdapter(adapter);
-//                            }
+                            Post post = (Post)adapter.getItem(position);
 
+                            Intent intent = new Intent(QueryBoardActivity.this, ViewPostActivity.class);
+                            intent.putExtra("post", post);
+                            startActivity(intent);
                         }
                     });
                 }

@@ -1,10 +1,14 @@
 package com.pyw.a17.dto;
 
+import java.io.Serializable;
+
 /**
  * Created by XNOTE on 2017-11-08.
  */
 
-public class Post {
+public class Post implements Serializable {
+
+    public static final long serialNoUID = 010101010101;
 
     private int no;
     private String title;
