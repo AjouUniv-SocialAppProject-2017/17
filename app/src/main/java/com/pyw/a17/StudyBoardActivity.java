@@ -115,6 +115,7 @@ public class StudyBoardActivity extends Board {
 
                             Intent intent = new Intent(StudyBoardActivity.this, ViewPostActivity.class);
                             intent.putExtra("post", post);
+                            intent.putExtra("board", "post_study");
                             startActivity(intent);
                         }
                     });

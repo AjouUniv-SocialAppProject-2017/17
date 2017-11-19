@@ -115,6 +115,7 @@ public class FreeBoardActivity extends Board {
 
                             Intent intent = new Intent(FreeBoardActivity.this, ViewPostActivity.class);
                             intent.putExtra("post", post);
+                            intent.putExtra("board", "post_free");
                             startActivity(intent);
                         }
                     });

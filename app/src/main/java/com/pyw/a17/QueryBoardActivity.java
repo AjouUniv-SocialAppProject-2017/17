@@ -115,6 +115,7 @@ public class QueryBoardActivity extends Board {
 
                             Intent intent = new Intent(QueryBoardActivity.this, ViewPostActivity.class);
                             intent.putExtra("post", post);
+                            intent.putExtra("board", "post_query");
                             startActivity(intent);
                         }
                     });
