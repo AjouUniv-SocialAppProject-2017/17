@@ -69,6 +69,21 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 }
+                case 3: {
+                    Intent intent = new Intent(MainActivity.this, StudyBoardActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case 4 : {
+                    Intent intent = new Intent(MainActivity.this, CrawlingActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case 5 : {
+                    Intent intent = new Intent(MainActivity.this, StudyBoardActivity.class);
+                    startActivity(intent);
+                    break;
+                }
             }
         }
     };
