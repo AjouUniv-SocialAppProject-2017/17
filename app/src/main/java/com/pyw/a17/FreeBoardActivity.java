@@ -104,7 +104,7 @@ public class FreeBoardActivity extends Board {
                     String writeDate = jsonObj.getString("write_date");
                     String writer = jsonObj.getString("writer");
 
-                    Post PostDTO = new Post(no, title, content, writeDate, writer, 0);
+                    Post PostDTO = new Post(no, title, content, writeDate, writer, "");
                     adapter.addItem(PostDTO);
                     listView.setAdapter(adapter);
 

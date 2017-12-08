@@ -24,7 +24,7 @@ public class PostAdapter extends BaseAdapter {
     TextView textViewContent;
     TextView textViewDate;
     TextView textViewWriter;
-    TextView textViewReply;
+    TextView textViewCategory;
 
     public PostAdapter() {
 
@@ -59,18 +59,22 @@ public class PostAdapter extends BaseAdapter {
         textViewContent = convertView.findViewById(R.id.post_content);
         textViewDate = convertView.findViewById(R.id.post_date);
         textViewWriter = convertView.findViewById(R.id.post_writer);
-        textViewReply = convertView.findViewById(R.id.post_reply);
+        textViewCategory = convertView.findViewById(R.id.post_category);
 
         textViewTitle.setText(list.get(i).getTitle());
         textViewContent.setText(list.get(i).getContent());
         textViewDate.setText(list.get(i).getWriteDate());
         textViewWriter.setText(list.get(i).getWriter());
-        textViewReply.setText(list.get(i).getReply() + "");
+        textViewCategory.setText(list.get(i).getCategory());
 
         return convertView;
     }
 
     public void addItem(Post post) {
         list.add(post);
+    }
+
+    public void empty() {
+        list.clear();
     }
 }

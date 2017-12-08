@@ -12,11 +12,6 @@
         android:layout_height="?attr/actionBarSize">
     </android.support.v7.widget.Toolbar>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="StudyBoard"
-        android:id="@+id/board_title"/>
     
     <ListView
         android:layout_width="match_parent"
@@ -25,7 +20,8 @@
 
 
     </ListView>
-    
+
+
     <LinearLayout
         android:layout_width="260dp"
         android:layout_height="60dp"
@@ -33,26 +29,31 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="20dip">
 
         <EditText
             android:layout_width="180dp"
             android:layout_height="60dp"
             android:id="@+id/search_edittext"/>
-        
+
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:id="@+id/search_btn"
-            android:text="검색"/>
+            android:text="검색"
+            android:background="@drawable/shadow"/>
 
     </LinearLayout>
-    
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/write_post_btn"
         android:text="글쓰기"
-        android:layout_gravity="right"/>
+        android:layout_gravity="right"
+        android:background="@drawable/shadow"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="20dip"/>
 
 </LinearLayout>

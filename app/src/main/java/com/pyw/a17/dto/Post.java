@@ -15,19 +15,19 @@ public class Post implements Serializable {
     private String content;
     private String writeDate;
     private String writer;
-    private int reply;
+    private String category;
 
     public Post() {
 
     }
 
-    public Post(int no, String title, String content, String writeDate, String writer, int reply) {
+    public Post(int no, String title, String content, String writeDate, String writer, String category) {
         this.no = no;
         this.title = title;
         this.content = content;
         this.writeDate = writeDate;
         this.writer = writer;
-        this.reply = reply;
+        this.category = category;
     }
 
     public int getNo() {
@@ -70,11 +70,11 @@ public class Post implements Serializable {
         this.writer = writer;
     }
 
-    public int getReply() {
-        return reply;
+    public String getCategory() {
+        return category;
     }
 
-    public void setReply(int reply) {
-        this.reply = reply;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -41,13 +41,14 @@ public class StudyBoardActivity extends Board {
         setContentView(R.layout.activity_studyboard);
 
         toolbarSetting();
+        getSupportActionBar().setTitle("스터디게시판");
         writePostBtn = (Button)findViewById(R.id.write_post_btn);
         writePostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(StudyBoardActivity.this, WritePostActivity.class);
                 intent.putExtra("board_kind", "post_study");
-                startActivity(intent);
+                startActivityForResult(intent, Global.WRITE_REQUEST_CODE);
             }
         });
 
@@ -56,6 +57,21 @@ public class StudyBoardActivity extends Board {
 
         TaskGetPost taskGetPost = new TaskGetPost();
         taskGetPost.execute("post_study");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode != RESULT_OK) {
+            return;
+        }
+
+        if(requestCode == Global.WRITE_REQUEST_CODE) {
+            adapter.empty();
+            TaskGetPost taskGetPost = new TaskGetPost();
+            taskGetPost.execute("post_study");
+        }
     }
 
     class TaskGetPost extends AsyncTask<String, Void, String> {
@@ -103,8 +119,9 @@ public class StudyBoardActivity extends Board {
                     String content = jsonObj.getString("content");
                     String writeDate = jsonObj.getString("write_date");
                     String writer = jsonObj.getString("writer");
+                    String category = jsonObj.getString("category");
 
-                    Post PostDTO = new Post(no, title, content, writeDate, writer, 0);
+                    Post PostDTO = new Post(no, title, content, writeDate, writer, category);
                     adapter.addItem(PostDTO);
                     listView.setAdapter(adapter);
 

@@ -3,12 +3,15 @@ package com.pyw.a17;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.pyw.a17.adapter.PostAdapter;
 import com.pyw.a17.dto.Post;
@@ -41,13 +44,14 @@ public class QueryBoardActivity extends Board {
         setContentView(R.layout.activity_queryboard);
 
         toolbarSetting();
+        getSupportActionBar().setTitle("질문게시판");
         writePostBtn = (Button)findViewById(R.id.write_post_btn);
         writePostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(QueryBoardActivity.this, WritePostActivity.class);
                 intent.putExtra("board_kind", "post_query");
-                startActivity(intent);
+                startActivityForResult(intent, Global.WRITE_REQUEST_CODE);
             }
         });
 
@@ -56,6 +60,21 @@ public class QueryBoardActivity extends Board {
 
         TaskGetPost taskGetPost = new TaskGetPost();
         taskGetPost.execute("post_query");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode != RESULT_OK) {
+            return;
+        }
+
+        if(requestCode == Global.WRITE_REQUEST_CODE) {
+            adapter.empty();
+            TaskGetPost taskGetPost = new TaskGetPost();
+            taskGetPost.execute("post_query");
+        }
     }
 
     class TaskGetPost extends AsyncTask<String, Void, String> {
@@ -103,8 +122,9 @@ public class QueryBoardActivity extends Board {
                     String content = jsonObj.getString("content");
                     String writeDate = jsonObj.getString("write_date");
                     String writer = jsonObj.getString("writer");
+                    String category = jsonObj.getString("category");
 
-                    Post PostDTO = new Post(no, title, content, writeDate, writer, 0);
+                    Post PostDTO = new Post(no, title, content, writeDate, writer, category);
                     adapter.addItem(PostDTO);
                     listView.setAdapter(adapter);
 
