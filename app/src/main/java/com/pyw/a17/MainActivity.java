@@ -22,12 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
     String[] gridColor ={
 
-            "#2ecc71",
-            "#1abc9c",
-            "#1abc9c",
-            "#2ecc71",
-            "#2ecc71",
-            "#1abc9c"
+            "#47b8e0",
+            "#47b8e0",
+            "#ff7473",
+            "#47b8e0",
+            "#47b8e0",
+            "#ffc952"
     };
 
     DisplayMetrics mMetrics;

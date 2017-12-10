@@ -37,6 +37,7 @@ public class CrawlingActivity extends Board {
         tabs.addTab(tabs.newTab().setText("WEB"));
         tabs.addTab(tabs.newTab().setText("Python"));
         tabs.addTab(tabs.newTab().setText("C/C++"));
+        tabs.setTabTextColors(R.color.submain_2, R.color.submain_2);
 
         tabs.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

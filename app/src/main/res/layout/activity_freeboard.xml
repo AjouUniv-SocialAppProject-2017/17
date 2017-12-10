@@ -5,14 +5,14 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
     >
 
-<android.support.v7.widget.Toolbar
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:titleTextColor="#fff"
-    android:id="@+id/toolbar"
-    android:background="@color/colorPrimary"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize">
-</android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.Toolbar
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:titleTextColor="#fff"
+        android:id="@+id/toolbar"
+        android:background="@color/main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
 
 <android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
