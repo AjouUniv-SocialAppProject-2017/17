@@ -1,58 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    >
 
-    <android.support.v7.widget.Toolbar
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:titleTextColor="#fff"
-        android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-    </android.support.v7.widget.Toolbar>
+<android.support.v7.widget.Toolbar
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:titleTextColor="#fff"
+    android:id="@+id/toolbar"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+</android.support.v7.widget.Toolbar>
 
-    <TextView
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FreeBoard"
-        android:id="@+id/board_title"/>
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <ListView
+        <!-- // Tab buttons -->
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="scrollable"
+            app:tabGravity="fill"
+            app:tabTextColor="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/colorAccent"
+            android:elevation="1dp"
+            android:background="@android:color/background_light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:id="@+id/post_listview">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/container">
 
+    </FrameLayout>
 
-    </ListView>
+</android.support.design.widget.CoordinatorLayout>
 
-    <LinearLayout
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <EditText
-            android:layout_width="180dp"
-            android:layout_height="60dp"
-            android:id="@+id/search_edittext"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:id="@+id/search_btn"
-            android:text="검색"/>
-
-    </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/write_post_btn"
-        android:text="글쓰기"
-        android:layout_gravity="right"/>
-
-</LinearLayout>
+</RelativeLayout>

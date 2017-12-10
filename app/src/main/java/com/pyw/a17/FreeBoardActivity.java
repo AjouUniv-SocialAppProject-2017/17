@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 
 import com.pyw.a17.adapter.PostAdapter;
 import com.pyw.a17.dto.Post;
+import com.pyw.a17.fragment.Fragment1;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -38,24 +41,40 @@ public class FreeBoardActivity extends Board {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_freeboard);
+        setContentView(R.layout.activity_queryboard);
 
         toolbarSetting();
+        getSupportActionBar().setTitle("질문게시판");
         writePostBtn = (Button)findViewById(R.id.write_post_btn);
         writePostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FreeBoardActivity.this, WritePostActivity.class);
                 intent.putExtra("board_kind", "post_free");
-                startActivity(intent);
+                startActivityForResult(intent, Global.WRITE_REQUEST_CODE);
             }
         });
 
         listView = (ListView)findViewById(R.id.post_listview);
         adapter = new PostAdapter();
 
-        TaskGetPost taskGetPost = new TaskGetPost();
+        FreeBoardActivity.TaskGetPost taskGetPost = new FreeBoardActivity.TaskGetPost();
         taskGetPost.execute("post_free");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode != RESULT_OK) {
+            return;
+        }
+
+        if(requestCode == Global.WRITE_REQUEST_CODE) {
+            adapter.empty();
+            FreeBoardActivity.TaskGetPost taskGetPost = new FreeBoardActivity.TaskGetPost();
+            taskGetPost.execute("post_free");
+        }
     }
 
     class TaskGetPost extends AsyncTask<String, Void, String> {
@@ -103,8 +122,9 @@ public class FreeBoardActivity extends Board {
                     String content = jsonObj.getString("content");
                     String writeDate = jsonObj.getString("write_date");
                     String writer = jsonObj.getString("writer");
+                    String category = jsonObj.getString("category");
 
-                    Post PostDTO = new Post(no, title, content, writeDate, writer, "");
+                    Post PostDTO = new Post(no, title, content, writeDate, writer, category);
                     adapter.addItem(PostDTO);
                     listView.setAdapter(adapter);
 

@@ -57,8 +57,10 @@ public class WritePostActivity extends Board {
 
         if(boardKind.equals("post_query")) {
             sAdapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_spinner_dropdown_item);
-        }else {
+        }else if(boardKind.equals("post_study")){
             sAdapter = ArrayAdapter.createFromResource(this, R.array.category_study, android.R.layout.simple_spinner_dropdown_item);
+        }else {
+            sAdapter = ArrayAdapter.createFromResource(this, R.array.category_free, android.R.layout.simple_spinner_dropdown_item);
         }
 
         categorySpinner.setAdapter(sAdapter);

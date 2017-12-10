@@ -60,12 +60,17 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
                 case 1 : {
-                    Intent intent = new Intent(MainActivity.this, FreeBoardActivity.class);
+                    Intent intent = new Intent(MainActivity.this, StudyBoardActivity.class);
                     startActivity(intent);
                     break;
                 }
                 case 2 : {
-                    Intent intent = new Intent(MainActivity.this, StudyBoardActivity.class);
+                    Intent intent = new Intent(MainActivity.this, FreeBoardActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case 4 : {
+                    Intent intent = new Intent(MainActivity.this, CrawlingActivity.class);
                     startActivity(intent);
                     break;
                 }
@@ -115,11 +120,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
                 case 1 : {
-                    textView.setText("자유게시판");
+                    textView.setText("스터디게시판");
                     break;
                 }
                 case 2 : {
-                    textView.setText("스터디게시판");
+                    textView.setText("자유게시판");
                     break;
                 }
                 case 3 : {
@@ -127,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
                 case 4 : {
-                    textView.setText("크롤링페이지");
+                    textView.setText("학습정보");
                     break;
                 }
                 case 5 : {
