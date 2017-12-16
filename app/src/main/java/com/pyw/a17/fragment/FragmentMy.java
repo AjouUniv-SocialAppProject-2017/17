@@ -46,6 +46,17 @@ public class FragmentMy extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_my, container, false);
 
+        String who = null;
+
+        if(getArguments() != null) {
+            who = getArguments().getString("who");
+            if(who == null || who.equals("")) {
+                who = Global.id;
+            }
+        }else {
+            who = Global.id;
+        }
+
         frgmentMyInfo = new FrgmentMyInfo();
 
         profile_id = (TextView)rootView.findViewById(R.id.profile_id);
@@ -61,7 +72,7 @@ public class FragmentMy extends Fragment {
         });
 
         TaskGetPost thread = new TaskGetPost();
-        thread.execute(Global.id);
+        thread.execute(who);
 
         return rootView;
     }

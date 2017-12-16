@@ -21,16 +21,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     String[] gridColor ={
-
             "#47b8e0",
             "#47b8e0",
             "#ff7473",
-            "#47b8e0",
-            "#47b8e0",
+            "#ff7473",
+            "#ffc952",
             "#ffc952"
     };
-
-    DisplayMetrics mMetrics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

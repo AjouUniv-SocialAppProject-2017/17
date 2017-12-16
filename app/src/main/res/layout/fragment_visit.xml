@@ -15,4 +15,25 @@
 
     </ListView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearlayout"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="300dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext_v" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="글작성"
+            android:layout_gravity="right"
+            android:background="@drawable/shadow"
+            android:id="@+id/writevisit_button"/>
+
+    </LinearLayout>
+
 </LinearLayout>

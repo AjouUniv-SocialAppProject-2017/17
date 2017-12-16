@@ -15,6 +15,7 @@ import com.pyw.a17.fragment.FrgmentMyVisit;
 public class MyActivity extends Board {
 
     FragmentMy fragmentMy;
+    String who = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,6 +26,18 @@ public class MyActivity extends Board {
         getSupportActionBar().setTitle("마이페이지");
 
         fragmentMy = new FragmentMy();
+
+        if(getIntent() != null) {
+            who = getIntent().getStringExtra("who");
+            Bundle bundle = new Bundle();
+            bundle.putString("who", who);
+            fragmentMy.setArguments(bundle);
+        }else {
+            who = Global.id;
+            Bundle bundle = new Bundle();
+            bundle.putString("who", who);
+            fragmentMy.setArguments(bundle);
+        }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentMy).commit();
 
@@ -46,6 +59,10 @@ public class MyActivity extends Board {
                 }else {
                     selected = new FrgmentMyVisit();
                 }
+
+                Bundle bundle = new Bundle();
+                bundle.putString("who", who);
+                selected.setArguments(bundle);
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, selected).commit();
             }
