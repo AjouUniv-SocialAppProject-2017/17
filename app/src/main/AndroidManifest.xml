@@ -27,6 +27,8 @@
         <activity android:name=".ViewPostActivity"/>
         <activity android:name=".StudyBoardActivity"/>
         <activity android:name=".CrawlingActivity"/>
+        <activity android:name=".CompetitonActivity"/>
+        <activity android:name=".MyActivity"/>
     </application>
 
 </manifest>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="대학생 개발자 커뮤니티"
+        android:textSize="12pt"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:id="@+id/textView2"
+        android:layout_marginTop="13dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개발기간 : 2017-10 ~ 2017-12"
+        android:id="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView2" />
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:src="@drawable/profile_img_one"
+        android:layout_marginRight="199dp"
+        android:layout_marginEnd="199dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/imageView2" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:src="@drawable/profile_img_two"
+        android:layout_marginTop="52dp"
+        android:id="@+id/imageView"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안드로이드 스튜디오를 사용하였고\n파이어베이스를 연동하여 개발했습니다\n데이터베이스는 Mysql 사용하였어요"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="38dip"
+        android:id="@+id/textView"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="쪽지 보내기"
+        android:background="@color/submain_3"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="18dip"
+        android:textColor="#eeeeeeee"/>
+
+</RelativeLayout>
